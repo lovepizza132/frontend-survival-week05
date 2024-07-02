@@ -1,14 +1,10 @@
 import TextField from './components/TextField';
 import useFetchRestaurants from './hooks/useFetchRestaurants';
-import Restaurant from './types/Restaurant';
+import extractCategories from './utils/extractCategories';
 
 export default function App() {
   const restaurants = useFetchRestaurants();
-  console.log(restaurants);
-  // const restaurantsCategory = restaurants.reduce((acc: string[], restaurant: Restaurant) => {
-  //   const { category } = restaurant;
-  //   return acc.includes(category) ? acc : [...acc, category];
-  // }, []);
+  const categories = extractCategories(restaurants);
 
   return (
     <div>
@@ -17,6 +13,7 @@ export default function App() {
       <TextField
         placeholder="식당 이름"
       />
+      {['전체', ...categories]}
     </div>
   );
 }
