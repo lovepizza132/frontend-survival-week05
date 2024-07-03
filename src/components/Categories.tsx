@@ -1,6 +1,6 @@
 import Category from './Category';
 
-type CategoriesProp = {
+type CategoriesProps = {
   categories: string[],
   setFilterCategory: (value: string) => void,
 
@@ -8,7 +8,7 @@ type CategoriesProp = {
 
 export default function Categories({
   categories, setFilterCategory,
-}: CategoriesProp) {
+}: CategoriesProps) {
   return (
     <ul
       style={{

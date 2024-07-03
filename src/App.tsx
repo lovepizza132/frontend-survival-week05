@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import useFetchRestaurants from './hooks/useFetchRestaurants';
 import extractCategories from './utils/extractCategories';
-import TextField from './components/TextField';
-import Categories from './components/Categories';
+import SearchBar from './components/SearchBar';
 
 export default function App() {
   const restaurants = useFetchRestaurants();
-  const categories = extractCategories(restaurants);
+
+  const [filterText, setFilterText] = useState<string>('');
   const [filterCategory, setFilterCategory] = useState<string>('전체');
-  const [text, setText] = useState<string>('');
+  const categories = extractCategories(restaurants);
 
   // console.log('filterCategory', filterCategory);
   // console.log('text', text);
@@ -16,18 +16,12 @@ export default function App() {
   return (
     <div>
       <h1>푸드코트 키오스크</h1>
-      <div>
-        <TextField
-          label="검색"
-          placeholder="식당 이름"
-          text={text}
-          setText={setText}
-        />
-        <Categories
-          categories={categories}
-          setFilterCategory={setFilterCategory}
-        />
-      </div>
+      <SearchBar
+        filterText={filterText}
+        categories={categories}
+        setFilterText={setFilterText}
+        setFilterCategory={setFilterCategory}
+      />
     </div>
   );
 }
