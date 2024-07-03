@@ -8,20 +8,26 @@ export default function App() {
   const restaurants = useFetchRestaurants();
   const categories = extractCategories(restaurants);
   const [filterCategory, setFilterCategory] = useState<string>('전체');
+  const [text, setText] = useState<string>('');
 
-  console.log('setFilterCategory', setFilterCategory);
+  // console.log('filterCategory', filterCategory);
+  // console.log('text', text);
 
   return (
     <div>
       <h1>푸드코트 키오스크</h1>
-      {/* searchBar */}
-      <TextField
-        placeholder="식당 이름"
-      />
-      <Categories
-        categories={categories}
-        setFilterCategory={setFilterCategory}
-      />
+      <div>
+        <TextField
+          label="검색"
+          placeholder="식당 이름"
+          text={text}
+          setText={setText}
+        />
+        <Categories
+          categories={categories}
+          setFilterCategory={setFilterCategory}
+        />
+      </div>
     </div>
   );
 }
