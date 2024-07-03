@@ -7,7 +7,7 @@ import Categories from './components/Categories';
 export default function App() {
   const restaurants = useFetchRestaurants();
   const categories = extractCategories(restaurants);
-  const [setFilterCategory, setFilterCategory] = useState<string>('전체');
+  const [filterCategory, setFilterCategory] = useState<string>('전체');
 
   console.log('setFilterCategory', setFilterCategory);
 
