@@ -11,8 +11,13 @@ export default function MenuItem({
   const { name, price } = food;
 
   return (
-    <li>
-      <span>
+    <li
+      style={{
+        display: 'flex',
+        paddingBlock: '.5rem',
+      }}
+    >
+      <span style={{ margin: '0 auto' }}>
         {name}
         (
         {price.toLocaleString()}

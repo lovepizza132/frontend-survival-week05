@@ -31,18 +31,6 @@ const restaurants = [
       },
     ],
   },
-  {
-    id: 'RESTAURANT_04',
-    category: '일식',
-    name: '혹등고래카레',
-    menu: [
-      {
-        id: 'FOOD_05',
-        name: '카레',
-        price: 10_000,
-      },
-    ],
-  },
 ];
 
 export default restaurants;
