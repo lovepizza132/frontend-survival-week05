@@ -1,5 +1,6 @@
 import Restaurant from '../types/Restaurant';
 import Food from '../types/Food';
+import RestaurantRow from './RestaurantRow';
 
 type RestaurantTableProps = {
   restaurants: Restaurant[]
@@ -30,44 +31,10 @@ export default function RestaurantTable({
         </thead>
         <tbody>
           {[...restaurants].map((restaurant: Restaurant) => (
-            <tr
+            <RestaurantRow
               key={restaurant.id}
-            >
-              <td>
-                {restaurant.name}
-              </td>
-              <td>
-                {restaurant.category}
-              </td>
-              <td>
-                {[...restaurant.menu].map((food: Food) => (
-                  <ul
-                    key={food.id}
-                    style={{
-                      listStyleType: 'none',
-                    }}
-                  >
-                    <li>
-                      <span>
-                        {food.name}
-                        (
-                        {food.price.toLocaleString()}
-                        원)
-                      </span>
-                      <button
-                        style={{
-                          marginLeft: '.5rem',
-                        }}
-                        type="button"
-                        name={food.name}
-                      >
-                        선택
-                      </button>
-                    </li>
-                  </ul>
-                ))}
-              </td>
-            </tr>
+              restaurant={restaurant}
+            />
           ))}
         </tbody>
       </table>
